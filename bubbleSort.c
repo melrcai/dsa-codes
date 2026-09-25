@@ -6,7 +6,7 @@ int compare(int a, int b){
 }
 
 void BubbleSort(int *A, int n, int (*compare)(int, int)){ 
-  int i, j, temp; 
+  int temp; 
   for (int i = 0; i < n; i++) { 
     for (int j = 0; j < n-1; j++) { 
       if (compare (A[j], A[j + 1]) > 0){ 
@@ -19,9 +19,13 @@ void BubbleSort(int *A, int n, int (*compare)(int, int)){
 } 
 
 int main(void) {
-    int i, A[] = {3, 2, 1, 5, 6, 4};
+    int A[] = {3, 2, 1, 5, 6, 4};
     int n = sizeof(A)/sizeof(A[0]);
+    printf("Before sorting: ");
+    for (int i = 0; i < n; i++)
+    printf("%d ", A[i]);
     BubbleSort(A, n, compare); 
+    printf("\nAfter sorting: ");
     for (int i = 0; i < n; i++)
     printf("%d ", A[i]);
 return 0;
